@@ -21,7 +21,8 @@ const styles = {
   body: {
     width: '100%',
     maxWidth: '1024px',
-    margin: '30px auto',
+    margin: '0px auto', // DON'T PUT MARGIN-TOP AND -BOTTOM! THis will extend the body height and show a scrollbar
+    padding: '30px 0px', // Use padding instead
     textAlign: 'center'
   }
 }

@@ -39,7 +39,13 @@ const styles = {
   listItemSecondaryAction: {
     '&:hover > $iconButton': {
       visibility: 'inherit'
+    },
+    '@media (hover: none)': {
+      display: 'none' // Can delete only if device as mouse/hover feature
     }
+  },
+  text: {
+    wordBreak: 'break-all'
   }
   /*
   listItem: {
@@ -90,7 +96,10 @@ const Line = withStyles(styles)(props => {
       {icon}
       <Badge color="primary" badgeContent={count} invisible={!count}>
         <Link href={path}>
-          <ListItemText primary={website.url} />
+          <ListItemText
+            primary={website.url}
+            classes={{ primary: props.classes.text }}
+          />
         </Link>
       </Badge>
       {deleteIcon}
@@ -99,6 +108,14 @@ const Line = withStyles(styles)(props => {
 })
 
 //------------------------------------------------------------------------------
+
+// On wide screen, when opening a website, we open it with the website on the
+// left and the discussions on the right. On small screen,  when opening a
+// website, we open it with the website full screen (and split the bar on the
+// right)
+const wideScreen = window.innerWidth >= 1035
+const showRight = wideScreen ? 'true' : 'false'
+const params = `?dcs-interact-mode=DISCUSS&dcs-show-right=${showRight}`
 
 export default class UrlList extends React.Component {
   static propTypes = {
@@ -110,7 +127,7 @@ export default class UrlList extends React.Component {
 
     const list = websites.map((website, index) => {
       const pathname = `/website/${website._id}`
-      const path = pathname + '?dcs-interact-mode=DISCUSS&dcs-show-right=true'
+      const path = pathname + params
       const LineWithCounts = withCounts(Line, pathname)
       const selected =
         index === 0 && new Date() - new Date(website.createdAt) < 1000
