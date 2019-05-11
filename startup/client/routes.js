@@ -14,7 +14,6 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { comToPlugin, inIFrame } from 'dcs-client'
 import { SimpleRouteMatcher } from 'meteor/sylque:dcs-simple-route-matcher'
 import { runReactRouterSync } from 'dcs-react-router-sync'
-
 import websiteJSON from '../../public/dcs-website.json'
 
 //------------------------------------------------------------------------------
@@ -67,6 +66,6 @@ const routeMatcher = new SimpleRouteMatcher({
   maxPageNameLength: websiteJSON.dcsTag.maxPageNameLength
 })
 
-export const routerSync = runReactRouterSync({ browserHistory, routeMatcher })
+runReactRouterSync({ browserHistory, routeMatcher })
 
 //------------------------------------------------------------------------------
