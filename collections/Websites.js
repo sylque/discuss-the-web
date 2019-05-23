@@ -53,7 +53,9 @@ Websites.add = new ValidatedMethod({
     }
 
     // Check that the url can be loaded in an iframe
-    const iframeIssue = !!res.headers['x-frame-options']
+    const iframeIssue =
+      !!res.headers['x-frame-options'] ||
+      !!res.headers['content-security-policy']
 
     // Convert to lowercase and remove hash
     return Websites.insert({ url, iframeIssue })
