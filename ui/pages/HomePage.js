@@ -31,7 +31,7 @@ const styles = {
 
 const InfoLink = props => (
   <Link
-    to="?dcs-trigger-id=info&dcs-interact-mode=COMMENT&dcs-show-right=true&dcs-redirect=true"
+    to="?dcs-trigger-id=info&dcs-interact-mode=COMMENT&dcs-show-right=true&dcs-redirect-layout-2=true"
     {...props}
   />
 )
