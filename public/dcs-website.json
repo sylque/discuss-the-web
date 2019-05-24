@@ -15,5 +15,12 @@
     "forceLowercase": true
   },
 
-  "dynamicPages": { "url": "/", "namePrefix": "d_", "homePageName": "d_home" }
+  "dynamicPages": { "url": "/", "namePrefix": "d_", "homePageName": "d_home" },
+
+  "redirects": [
+    {
+      "src": { "layout": 2, "pageName": "d_home" },
+      "dest": { "layout": 0, "pageName": "@SAME_AS_SRC@" }
+    }
+  ]
 }

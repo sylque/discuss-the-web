@@ -16,7 +16,7 @@
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
     "dcs-client": "^1.0.13",
-    "dcs-react-router-sync": "^1.0.8",
+    "dcs-react-router-sync": "^1.0.9",
     "history": "^4.9.0",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.8.6",

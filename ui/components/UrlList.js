@@ -114,8 +114,8 @@ const Line = withStyles(styles)(props => {
 // website, we open it with the website full screen (and split the bar on the
 // right)
 const wideScreen = window.innerWidth >= 1035
-const showRight = wideScreen ? 'true' : 'false'
-const params = `?dcs-interact-mode=DISCUSS&dcs-show-right=${showRight}`
+const layout = wideScreen ? 3 : 2
+const params = `?dcs-layout=${layout}&dcs-interact-mode=DISCUSS`
 
 export default class UrlList extends React.Component {
   static propTypes = {
