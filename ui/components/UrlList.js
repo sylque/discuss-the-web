@@ -14,7 +14,7 @@ import DeleteIcon from '@material-ui/icons/DeleteOutlined' // Close
 import Tooltip from '@material-ui/core/Tooltip'
 import Badge from '@material-ui/core/Badge'
 
-import { withCounts } from 'dcs-react-router-sync'
+import { withDcs } from 'dcs-react-router-sync'
 import Link from './Link'
 
 import { Websites } from '../../collections/Websites'
@@ -59,7 +59,7 @@ const styles = {
 //------------------------------------------------------------------------------
 
 const Line = withStyles(styles)(props => {
-  const { path, website, counts, selected, classes } = props
+  const { path, website, selected, classes, dcsCount } = props
 
   const icon = website.iframeIssue ? (
     <Tooltip title={text} placement="left-start">
@@ -71,13 +71,12 @@ const Line = withStyles(styles)(props => {
     <ListItemIcon>
       <CheckIcon />
     </ListItemIcon>
-  )
-  const count = (counts && counts.length && counts[0].count) || 0
-
-  // Display the delete icon only if we have a counts object (meaning we are
+    )
+  
+  // Display the delete icon only if we have a count (meaning we are
   // in a Docuss iframe) and the count is 0
   let deleteIcon = ''
-  if (counts && count === 0) {
+  if (dcsCount !== undefined && dcsCount === 0) {
     deleteIcon = (
       <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
         <IconButton
@@ -94,7 +93,7 @@ const Line = withStyles(styles)(props => {
   return (
     <ListItem selected={selected} className={classes.listItem}>
       {icon}
-      <Badge color="primary" badgeContent={count} invisible={!count}>
+      <Badge color="primary" badgeContent={dcsCount} invisible={!dcsCount}>
         <Link href={path}>
           <ListItemText
             primary={website.url}
@@ -111,7 +110,7 @@ const Line = withStyles(styles)(props => {
 
 // On wide screen, when opening a website, we open it with the website on the
 // left and the discussions on the right. On small screen,  when opening a
-// website, we open it with the website full screen (and split the bar on the
+// website, we open it with the website full screen (and the split bar on the
 // right)
 const wideScreen = window.innerWidth >= 1035
 const layout = wideScreen ? 3 : 2
@@ -128,7 +127,7 @@ export default class UrlList extends React.Component {
     const list = websites.map((website, index) => {
       const pathname = `/website/${website._id}`
       const path = pathname + params
-      const LineWithCounts = withCounts(Line, pathname)
+      const LineWithCounts = withDcs(Line, pathname)
       const selected =
         index === 0 && new Date() - new Date(website.createdAt) < 1000
       return (
