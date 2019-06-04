@@ -15,7 +15,9 @@
     "forceLowercase": true
   },
 
-  "dynamicPages": { "url": "/", "namePrefix": "d_", "homePageName": "d_home" },
+  "pages": [{ "name": "d_home", "url": "/" }],
+
+  "webApp": { "otherPagesPrefix": "d_" },
 
   "redirects": [
     {
