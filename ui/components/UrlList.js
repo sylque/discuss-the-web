@@ -71,8 +71,8 @@ const Line = withStyles(styles)(props => {
     <ListItemIcon>
       <CheckIcon />
     </ListItemIcon>
-    )
-  
+  )
+
   // Display the delete icon only if we have a count (meaning we are
   // in a Docuss iframe) and the count is 0
   let deleteIcon = ''
@@ -140,7 +140,9 @@ export default class UrlList extends React.Component {
       )
     })
 
-    return <List component="nav">{list}</List>
+    const listOrEmpty = list.length ? list : 'No website yet. Please click the above button to add one.'
+
+    return <List component="nav">{listOrEmpty}</List>
   }
 }
 
