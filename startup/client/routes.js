@@ -53,10 +53,21 @@ export const renderRoutes = () => (
 //------------------------------------------------------------------------------
 
 if (inIFrame()) {
+  // Connect to the Docuss plugin
   comToPlugin.connect({
     discourseOrigin: '*',
     timeout: 10000,
     onTimeout: () => console.log('Could not connect to the Docuss plugin')
+  })
+
+  // Set the 'Help' title to the "info" trigger and the 'DiscussTheWeb' category
+  // to all triggers
+  comToPlugin.onDiscourseRoutePushed(({ route }) => {    
+    const discourseTitle =
+      route.pageName === 'd_home' && route.triggerId === 'info'
+        ? 'Help'
+        : undefined
+    comToPlugin.postSetRouteProps({ category: 'DiscussTheWeb', discourseTitle })
   })
 }
 
