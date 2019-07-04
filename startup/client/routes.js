@@ -61,7 +61,7 @@ if (inIFrame()) {
   })
 
   // Set the 'Help' title to the "info" trigger and the 'DiscussTheWeb' category
-  // to all triggers
+  // to all pages/triggers
   comToPlugin.onDiscourseRoutePushed(({ route }) => {    
     const discourseTitle =
       route.pageName === 'd_home' && route.triggerId === 'info'
