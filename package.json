@@ -12,15 +12,15 @@
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
+    "@babel/runtime": "^7.5.5",
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
-    "dcs-client": "^1.0.14",
-    "dcs-react-router-sync": "^1.0.15",
+    "dcs-client": "^1.0.19",
+    "dcs-react-router-sync": "^1.0.16",
     "history": "^4.9.0",
     "meteor-node-stubs": "^0.4.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "simpl-schema": "^1.5.5"
