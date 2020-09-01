@@ -5,6 +5,8 @@ A sample application to illustrate how to use
 
 The application allows to register website urls and discuss them.
 
+**This project is not active anymore.** Fixes are provided to existing users, but I stopped working on new features. You might want to check  [DiscPage](https://github.com/sylque/discpage), which is somehow a simplified version of Docuss.
+
 ## See it live
 
 The application is hosted [here](http://www.docuss.org/docuss/d_home).
