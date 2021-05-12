@@ -23,6 +23,6 @@
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "simpl-schema": "^1.5.5"
+    "simpl-schema": "^1.10.2"
   }
 }
